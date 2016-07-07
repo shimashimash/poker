@@ -2,11 +2,11 @@
 
 namespace MyApp;
 
-class Cards
+class Hand
 {
-    public function getCards($rand)
+    public function getHand()
     {
-        $myHand = array(
+        $trump = array(
             array("number" => 1, "mark" => "clubs", "img" => "clubs_1"),
             array("number" => 2, "mark" => "clubs", "img" => "clubs_2"),
             array("number" => 3, "mark" => "clubs", "img" => "clubs_3"),
@@ -62,16 +62,16 @@ class Cards
         );
 
         // キーと値の関係を保持したままシャッフル（サイトのパクリ）
-        if (!is_array($myHand)) return $myHand;
-            $keys = array_keys($myHand);
+        if (!is_array($trump)) return $trump;
+            $keys = array_keys($trump);
             shuffle($keys);
-            $random = array();
+            $shuffle = array();
             foreach ($keys as $key) {
-                $random[$key] = $myHand[$key];
+                $shuffle[$key] = $trump[$key];
             }
         // 5件取得
-        $rand = array_slice($random, 0,5);
+        $myHand = array_slice($shuffle, 0,5);
 
-        return $rand;
+        return $myHand;
     }
 }

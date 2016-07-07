@@ -144,10 +144,9 @@ class Poker
 	private function isPair($cards) {
 		$state = $this->searchPair($cards);
 		rsort($state);
-		if (array_shift($state) == 2) {
-			if (array_shift($state) == 2) {
-				return true;
-			}
+		$shift_state = array_shift($state) == 2 ? $state : false;
+		if (array_shift($shift_state) == 2) {
+			return true;
 		}
 		return false;
 	}

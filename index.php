@@ -1,17 +1,13 @@
 <?php
 require_once(__DIR__ . '/poker.php');
-require_once(__DIR__ . '/cards.php');
+require_once(__DIR__ . '/hand.php');
 
-// $poker = new \MyApp\Poker();
-// $result = $poker->getYaku($cards);
-$card = new \MyApp\Cards();
-$cards = $card->getCards($rand);
+$hand = new \MyApp\Hand();
+$cards = $hand->getHand();
 
 $poker = new \MyApp\Poker();
 $result = $poker->getYaku($cards);
 
-//var_dump($cards);
-//var_dump($result);
 ?>
 
 <!DOCTYPE html>
