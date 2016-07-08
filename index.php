@@ -1,17 +1,13 @@
 <?php
 require_once(__DIR__ . '/poker.php');
-require_once(__DIR__ . '/cards.php');
+require_once(__DIR__ . '/hand.php');
 
-// $poker = new \MyApp\Poker();
-// $result = $poker->getYaku($cards);
-$card = new \MyApp\Cards();
-$cards = $card->getCards($rand);
+$hand = new \MyApp\Hand();
+$cards = $hand->getHand();
 
 $poker = new \MyApp\Poker();
 $result = $poker->getYaku($cards);
 
-//var_dump($cards);
-//var_dump($result);
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +26,8 @@ $result = $poker->getYaku($cards);
 <body>
     <div>
         <?php foreach ($cards as $card): ?>
-                <img src="http://localhost:8888/poker/image_trump/gif/<?php echo $card['img'].".gif"; ?>">
+                <img src="http://poker.host/image_trump/gif/<?php echo $card['img'].".gif"; ?>">
+                <p><?php echo $card['number']. $card['mark']; ?></p>
         <?php endforeach; ?>
     </div>
     <div class="result">
