@@ -1,3 +1,6 @@
-$('.onemore').click(function() {
-  location.reload();
+$(function() {
+    $('.onemore').click(function() {
+        location.reload();
+    });
 });
+

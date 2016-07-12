@@ -2,10 +2,26 @@ body {
 	background: green;
 	}
 
-.cards {
-	float: left;
+.cards-field {
+	text-align: center;
+    margin: 50px;
 	}
 
-.cards-field {
-	overflow: hidden;
+.trump-img {
+	width: 100px;
+    height: 125px;
 	}
+
+.rank {
+    text-align: center;
+    margin: 20px;
+}
+
+.onemore-btn {
+    text-align: center;
+}
+
+.onemore {
+    cursor: pointer;
+    border-radius: 20px;
+}
