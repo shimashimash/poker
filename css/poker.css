@@ -17,11 +17,23 @@ body {
     margin: 20px;
 }
 
-.onemore-btn {
-    text-align: center;
-}
-
 .onemore {
     cursor: pointer;
     border-radius: 20px;
+    margin-left: 20px;
 }
+
+.yamafuda-field {
+    width: 100%;
+    text-align: center;
+}
+
+.yamafuda {
+    width: 100px;
+    height: 125px;
+}
+
+.box {
+    display: inline-block;
+}
+

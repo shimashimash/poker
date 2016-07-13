@@ -22,14 +22,15 @@ $rank = $poker->getYaku($cards);
 <body>
     <div class="cards-field">
         <?php foreach ($cards as $card): ?>
-        <img src="http://localhost:8888/poker/image_trump/gif/<?php echo $card['mark'].'_'.$card['number'].".gif"; ?>" class="trump-img">
+            <img src="http://localhost:8888/poker/image_trump/gif/<?php echo $card['mark'].'_'.$card['number'].".gif"; ?>" class="trump-img">
         <?php endforeach; ?>
     </div>
     <div class="rank">
         <p>役は<?= $rank ?>です</p>
     </div>
-    <div class="onemore-btn">
-        <button class="onemore">もういっかい！</button>
+    <div class="yamafuda-field">
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box box1"><button class="onemore">もういっかい！</button></div>
     </div>
 </body>
 </html>

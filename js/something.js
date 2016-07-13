@@ -1,6 +1,5 @@
 $(function() {
-    $('.onemore').click(function() {
+    $('.onemore').on('click', function() {
         location.reload();
     });
 });
-
