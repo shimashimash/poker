@@ -18,14 +18,17 @@ body {
 }
 
 .onemore {
+    background-color: #FFFF00;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 25px;
     margin-left: 20px;
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 37px;
 }
 
-.yamafuda-field {
-    width: 100%;
-    text-align: center;
+.onemore:hover {
+    opacity: 0.8;
 }
 
 .yamafuda {
@@ -33,7 +36,12 @@ body {
     height: 125px;
 }
 
-.box {
-    display: inline-block;
+.box-parent {
+    display: table;
+
+}
+
+.box-child {
+    display: table-cell;
 }
 

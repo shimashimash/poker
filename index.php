@@ -15,6 +15,7 @@ $rank = $poker->getYaku($cards);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Poker</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/poker.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/something.js"></script>
@@ -28,9 +29,9 @@ $rank = $poker->getYaku($cards);
     <div class="rank">
         <p>役は<?= $rank ?>です</p>
     </div>
-    <div class="yamafuda-field">
-        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
-        <div class="box box1"><button class="onemore">もういっかい！</button></div>
+    <div class="box-parent">
+        <div class="box-child"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box-child"><button class="onemore">もういっかい！</button></div>
     </div>
 </body>
 </html>
