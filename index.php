@@ -1,9 +1,10 @@
 <?php
+ini_set("display_errors", 1);
 require_once(__DIR__ . '/poker.php');
 require_once(__DIR__ . '/hand.php');
 
-$myhand = new \MyApp\Hand();
-$cards = $myhand->getHand();
+$hand = new \MyApp\Hand();
+$cards = $hand->getHand();
 
 $poker = new \MyApp\Poker();
 $rank = $poker->getYaku($cards);
@@ -29,9 +30,16 @@ $rank = $poker->getYaku($cards);
     <div class="rank">
         <p>役は<?= $rank ?>です</p>
     </div>
-    <div class="box-parent">
-        <div class="box-child"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
-        <div class="box-child"><button class="onemore">もういっかい！</button></div>
+    <div class="field-parent">
+        <div class="field-child"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="field-child"><button class="reload-btn">もういっかい！</button><div>
     </div>
+<!--     <div class="cp-field">
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <div class="box"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+    </div> -->
 </body>
 </html>

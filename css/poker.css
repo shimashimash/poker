@@ -1,5 +1,6 @@
 body {
 	background: green;
+    width: 100%;
 	}
 
 .cards-field {
@@ -17,17 +18,19 @@ body {
     margin: 20px;
 }
 
-.onemore {
+.reload-btn {
     background-color: #FFFF00;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 25px;
-    margin-left: 20px;
     border: 1px solid #ccc;
+    margin-left: 20px;
+    margin-top: 45px;
     width: 100px;
     height: 37px;
 }
 
-.onemore:hover {
+.reload-btn:hover {
     opacity: 0.8;
 }
 
@@ -36,12 +39,43 @@ body {
     height: 125px;
 }
 
-.box-parent {
+.field-child {
+    float: left;
+}
+
+.field-parent {
+    width: 220px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.field-parent:before,
+.field-parent:after {
+    content: "";
     display: table;
-
 }
 
-.box-child {
-    display: table-cell;
+.field-parent:after {
+    clear: both;
 }
+
+/*.box {
+    float: left;
+}
+
+.cp-field {
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cp-field:before,
+.cp-field:after {
+    content: "";
+    display: table;
+}
+
+.cp-field:after {
+    clear: both;
+}*/
 
