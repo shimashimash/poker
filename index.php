@@ -4,7 +4,9 @@ require_once(__DIR__ . '/poker.php');
 require_once(__DIR__ . '/hand.php');
 
 $hand = new \MyApp\Hand();
-$cards = $hand->getHand();
+$yamap = $hand->getHand();
+var_dump($yamap);
+$cards = array_slice($yamap, 0, 5);
 
 $poker = new \MyApp\Poker();
 $rank = $poker->getYaku($cards);
@@ -24,14 +26,16 @@ $rank = $poker->getYaku($cards);
 <body>
     <div class="cards-field">
         <?php foreach ($cards as $card): ?>
-            <img src="http://localhost:8888/poker/image_trump/gif/<?php echo $card['mark'].'_'.$card['number'].".gif"; ?>" class="trump-img">
+            <!-- <img src="http://localhost:8888/poker/image_trump/gif/<?php echo $card['mark'].'_'.$card['number'].".gif"; ?>" class="trump-img"> -->
+            <img src="http://poker.host/image_trump/gif/<?php echo $card['mark'].'_'.$card['number'].".gif"; ?>" class="trump-img">
         <?php endforeach; ?>
     </div>
     <div class="rank">
         <p>役は<?= $rank ?>です</p>
     </div>
     <div class="field-parent">
-        <div class="field-child"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div>
+        <!-- <div class="field-child"><img src="http://localhost:8888/poker/image_trump/gif/z02.gif" class="yamafuda"></div> -->
+        <div class="field-child"><img src="http://poker.host/image_trump/gif/z02.gif" class="yamafuda"></div>
         <div class="field-child"><button class="reload-btn">もういっかい！</button><div>
     </div>
 <!--     <div class="cp-field">

@@ -3,8 +3,16 @@
 namespace MyApp;
 
 class Hand
-{
+{   
+    private $hand;
+
     public function getHand()
+    {
+        $yamafuda = $this->setHand();
+        return $yamafuda;
+    }
+
+    private function setHand()
     {
         $trump = array();
         $marks = array('spades', 'hearts', 'diams', 'clubs');
@@ -18,9 +26,11 @@ class Hand
                 );
             }
         }
-        shuffle($trump);
-        $myhand = array_slice($trump, 0, 5);
-        //$yamafuda = array_slice($trump, 6, 52);
-        return $myhand;
+        $random = shuffle($trump);
+        return $random;
+        // $myhand = array_slice($trump, 0, 5);
+        // //$cphand = array_slice($trump, 6, 10);
+        // //$yamafuda = array_slice($trump, 11, 52);
+        // return $myhand;
     }
 }
