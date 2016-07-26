@@ -1,5 +1,5 @@
 body {
-	background: green;
+	background: #008000;
     width: 100%;
 	}
 
@@ -24,8 +24,7 @@ body {
     cursor: pointer;
     border-radius: 25px;
     border: 1px solid #ccc;
-    margin-left: 20px;
-    margin-top: 45px;
+    margin: 45px 20px 0 20px;
     width: 100px;
     height: 37px;
 }
@@ -44,7 +43,7 @@ body {
 }
 
 .field-parent {
-    width: 220px;
+    width: 240px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -58,24 +57,4 @@ body {
 .field-parent:after {
     clear: both;
 }
-
-/*.box {
-    float: left;
-}
-
-.cp-field {
-    width: 500px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.cp-field:before,
-.cp-field:after {
-    content: "";
-    display: table;
-}
-
-.cp-field:after {
-    clear: both;
-}*/
 

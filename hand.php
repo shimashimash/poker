@@ -19,8 +19,7 @@ class Hand
             }
         }
         shuffle($trump);
-        $myhand = array_slice($trump, 0, 5);
-        //$yamafuda = array_slice($trump, 6, 52);
-        return $myhand;
+        $yamafuda = array_slice($trump, 0, 52);
+        return $yamafuda;
     }
 }
