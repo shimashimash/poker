@@ -8,7 +8,6 @@ class Hand
     {
         $trump = array();
         $marks = array('spades', 'hearts', 'diams', 'clubs');
-
         // パクリ先URL=>http://php-archive.net/php/blackjack/
         foreach($marks as $mark){
             for($i=1;$i<=13;$i++){
@@ -19,7 +18,9 @@ class Hand
             }
         }
         shuffle($trump);
-        $yamafuda = array_slice($trump, 0, 52);
-        return $yamafuda;
+        $myhands = array_slice($trump, 0, 5);
+        $cphands = array_slice($trump, 6, 5);
+
+        return array($myhands,$cphands);
     }
 }

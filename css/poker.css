@@ -1,7 +1,17 @@
+@charset "utf-8";
+
 body {
 	background: #008000;
+    font-family: Verdana, "ＭＳ Ｐゴシック", sans-serif;
+    margin: 0;
+    padding: 0;
     width: 100%;
+    font-size: 150%;
 	}
+
+p {
+    padding: 10px 5px 5px 5px;
+}
 
 .cards-field {
 	text-align: center;
@@ -18,19 +28,8 @@ body {
     margin: 20px;
 }
 
-.reload-btn {
-    background-color: #FFFF00;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    margin: 45px 20px 0 20px;
-    width: 100px;
-    height: 37px;
-}
-
-.reload-btn:hover {
-    opacity: 0.8;
+.yamafuda-field {
+    text-align: center;
 }
 
 .yamafuda {
@@ -38,23 +37,49 @@ body {
     height: 125px;
 }
 
-.field-child {
-    float: left;
-}
-
-.field-parent {
-    width: 240px;
-    margin: 0 auto;
+.field {
+    width: 350px;
+    margin: auto;
     overflow: hidden;
 }
 
-.field-parent:before,
-.field-parent:after {
-    content: "";
-    display: table;
+.field li {
+    float: left;
 }
 
-.field-parent:after {
-    clear: both;
+li.syouhai {
+    margin-top: 55px;
+    margin-left: 30px;
 }
 
+.yamafuda-field {
+    width:          100px;
+    overflow:       hidden;
+    margin:         10px 8px 10px 16px;
+    position:       relative;   /* 相対位置指定 */
+}
+
+.yamafuda-field .caption {
+    font-size: 55%;
+    text-align: center;
+    padding-top: 55%;
+    color: #fff;
+}
+
+.yamafuda-field .mask {
+    width: 100%;
+    height: 125px;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0,0,0,0.4);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.yamafuda-field:hover .mask {
+    opacity: 1;
+    cursor: pointer;
+}

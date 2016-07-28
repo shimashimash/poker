@@ -1,5 +1,5 @@
 $(function() {
-    $('.reload-btn').on('click', function() {
+    $('.mask').on('click', function() {
         location.reload();
     });
 });
