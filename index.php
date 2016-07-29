@@ -28,8 +28,9 @@ $syouhai = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $
 </head>
 <body>
     <div class="cards-field">
+        <div><p>You</p></div>
         <?php foreach ($myhands as $myhand): ?>
-            <img src="http://localhost:8888/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+            <img src="http://poker.host/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
         <?php endforeach; ?>
         <p>あなたの役は<?= h($rank); ?>です</p>
     </div>
@@ -43,10 +44,11 @@ $syouhai = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $
         <li class="syouhai"><?= $syouhai; ?></li>
     </ul>
     <div class="cards-field">
+        <p><?= h($cpRank); ?></p>
         <?php foreach ($cphands as $cphand): ?>
             <img src="http://localhost:8888/poker/image_trump/gif/<?= h($cphand['mark']).'_'.h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
         <?php endforeach; ?>
-        <p><?= h($cpRank); ?></p>
+        <div><p>Computer</p></div>
     </div>
 </body>
 </html>
