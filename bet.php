@@ -5,10 +5,20 @@ require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
 
 if(isset($_POST['bet'])) {
+    $results = array();
     $results = $_POST['bet'];
 }
-session_start();
-$myhands = $_SESSION['myhands'];
+
+if(isset($_POST['trumps'])) {
+    $trumps = $_POST['trumps'];
+}
+
+foreach ($results as $key => $value) {
+    if (($key = array_search($value, $trumps)) != false) {
+    unset($trumps[$key]);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +33,9 @@ $myhands = $_SESSION['myhands'];
     <script src="js/poker.js"></script>
 </head>
 <body>
-    <?php foreach ($myhands as $myhand): ?>
-        <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+    <?php foreach ($trumps as $trump): ?>
+        <img src="/poker/image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
     <?php endforeach; ?>
+    <?php var_dump($trumps); ?>
 </body>
 </html>
