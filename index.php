@@ -3,6 +3,9 @@ ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/poker.php');
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
+
+session_start();
+$_SESSION['kitty'] = $kitty;
 ?>
 
 <!DOCTYPE html>

@@ -4,7 +4,7 @@ namespace MyApp;
 require_once('hand.php');
 
 $trump = new \MyApp\Hand();
-list($myhands, $cphands) = $trump->getHand();
+list($myhands, $cphands, $kitty) = $trump->getHand();
 
 $poker = new \MyApp\Poker();
 list($rank, $myResult) = $poker->getYaku($myhands);

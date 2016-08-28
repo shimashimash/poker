@@ -4,19 +4,43 @@ require_once(__DIR__ . '/controller/poker.php');
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
 
+// 山札
+session_start();
+$kitty = $_SESSION['kitty'];
+
+// 捨てられたカードの値を受け取り、その数をカウントする
 if(isset($_POST['bet'])) {
-    $results = array();
     $results = $_POST['bet'];
+    $cntBet = count($results);
+}else{
+    $cntBet = 0;
 }
 
+// 山札から捨てられた枚数分引く
+$draws = array_slice($kitty, 0, $cntBet);
+
+// ドローしたものを整形
+foreach ($draws as $draw) {
+    $drew[] = $draw['mark'].'_'.$draw['number'].".gif";
+}
+
+// 自分の手札を受け取る
 if(isset($_POST['trumps'])) {
     $trumps = $_POST['trumps'];
 }
 
-foreach ($results as $key => $value) {
-    if (($key = array_search($value, $trumps)) != false) {
-    unset($trumps[$key]);
+// 捨てられたカードを手札から削除
+if (isset($results)) {
+    foreach ($results as $key => $value) {
+        if (($key = array_search($value, $trumps)) !== false) {
+            unset($trumps[$key]);
+        }
     }
+}
+
+// 手札にドローしたカードを追加
+if (isset($drew)) {
+    $trumps = array_merge($trumps, $drew);
 }
 
 ?>
@@ -36,6 +60,5 @@ foreach ($results as $key => $value) {
     <?php foreach ($trumps as $trump): ?>
         <img src="/poker/image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
     <?php endforeach; ?>
-    <?php var_dump($trumps); ?>
 </body>
 </html>

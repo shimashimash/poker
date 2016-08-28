@@ -25,6 +25,8 @@ class Hand
         // 6から5枚を相手の手札とする
         $cphands = array_slice($trump, 6, 5);
 
-        return array($myhands,$cphands);
+        $kitty = array_slice($trump, 11, 42);
+
+        return array($myhands, $cphands, $kitty);
     }
 }
