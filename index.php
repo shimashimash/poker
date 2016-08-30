@@ -22,12 +22,12 @@ $_SESSION['kitty'] = $kitty;
 <body>
     <div class="cards-field">
         <div><p>You</p></div>
-        <form action="bet.php" method="post">
-        <?php foreach ($myhands as $myhand): ?>
-            <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
-            <input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
-            <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
-        <?php endforeach; ?>
+        <form action="hold.php" method="post">
+            <?php foreach ($myhands as $myhand): ?>
+                <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+                <input type="checkbox" name="hold[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+                <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+            <?php endforeach; ?>
         <input type="submit" value="BET">
         </form>
         <p>あなたの役は<?= h($rank); ?>です</p>
