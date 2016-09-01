@@ -29,20 +29,21 @@ if(isset($_POST['trumps'])) {
     $trumps = $_POST['trumps'];
 }
 
-// 捨てられたカードを手札から削除
 if (isset($results)) {
     foreach ($results as $key => $value) {
-        if (($key = array_search($value, $trumps)) !== false) {
-            unset($trumps[$key]);
+        if (($key = array_keys($trumps, $value)) !== false) {
+            foreach($key as $ke){
+                $keies[] = $ke;
+                //printf($keies);
+            }
         }
     }
+    for ($i=0; $i<$cntBet; $i++) {
+        //printf($drew[$i]);
+        $replace = array($keies[$i] => $drew[$i]);
+    }
+        $trumps = array_replace($trumps, $replace);
 }
-
-// 手札にドローしたカードを追加
-if (isset($drew)) {
-    $trumps = array_merge($trumps, $drew);
-}
-
 ?>
 
 <!DOCTYPE html>
