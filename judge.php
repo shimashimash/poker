@@ -1,10 +1,8 @@
 <?php
 ini_set("display_errors", 1);
-require_once(__DIR__ . '/controller/poker.php');
 require_once(__DIR__ . '/controller/function.php');
-require_once(__DIR__ . '/controller/data.php');
 
-// 山札
+// 山札取得
 session_start();
 $kitty = $_SESSION['kitty'];
 
@@ -29,23 +27,22 @@ if(isset($_POST['trumps'])) {
     $trumps = $_POST['trumps'];
 }
 
+// 捨てられたカードのkeyにドローしたカードのvalueをいれる
 if (isset($results)) {
     foreach ($results as $key => $value) {
         if (($key = array_keys($trumps, $value)) !== false) {
             foreach($key as $ke){
                 $keies[] = $ke;
-                //printf($keies);
             }
         }
     }
     for ($i=0; $i<$cntBet; $i++) {
-        //printf($drew[$i]);
         $replace = array($keies[$i] => $drew[$i]);
-    }
         $trumps = array_replace($trumps, $replace);
+    }
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
