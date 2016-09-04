@@ -2,7 +2,8 @@
 namespace MyApp;
 
 require_once('hand.php');
-require_once('change.php');
+require_once('poker.php');
+//require_once('change.php');
 
 $trump = new \MyApp\Hand();
 list($myhands, $cphands, $kitty) = $trump->getHand();

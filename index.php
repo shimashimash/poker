@@ -1,6 +1,5 @@
 <?php
 ini_set("display_errors", 1);
-require_once(__DIR__ . '/controller/poker.php');
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
 
@@ -23,11 +22,11 @@ $_SESSION['kitty'] = $kitty;
     <div class="cards-field">
         <div><p>You</p></div>
         <form action="judge.php" method="post">
-        <?php foreach ($myhands as $myhand): ?>
-            <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
-            change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
-            <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
-        <?php endforeach; ?>
+            <?php foreach ($myhands as $myhand): ?>
+                <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+                change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+                <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+            <?php endforeach; ?>
         <input type="submit" value="Judge!">
         </form>
         <p>あなたの役は<?= h($rank); ?>です</p>

@@ -1,6 +1,8 @@
 <?php
 namespace MyApp;
-
+/**
+ * 手札振り分けクラス
+ */
 class Hand
 {
     public function getHand()
