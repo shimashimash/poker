@@ -32,13 +32,13 @@ $_SESSION['kitty'] = $kitty;
         <p>あなたの役は<?= h($rank); ?>です</p>
     </div>
     <ul class="field">
-        <li class="yamafuda-field">
-            <img src="/poker/image_trump/gif/z02.gif" class="yamafuda" alt="山札">
+        <li class="kitty-field">
+            <img src="/poker/image_trump/gif/z02.gif" class="kitty" alt="山札">
             <div class="mask">
                 <div class="caption">One more !</div>
             </div>
         </li>
-        <li class="syouhai"><?= $syouhai; ?></li>
+        <li class="judge"><?= $judge; ?></li>
     </ul>
     <div class="cards-field">
         <p>相手の役は<?= h($cpRank); ?>です</p>

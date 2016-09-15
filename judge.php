@@ -1,11 +1,20 @@
 <?php
 ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
-require_once(__DIR__ . '/controller/change.php');
-//require_once(__DIR__ . '/controller/data.php');
+require_once(__DIR__ . '/controller/data.php');
 
-$change = new \MyApp\Change();
 $trumps = $change->changeCards();
+
+//数字を抽出
+var_dump(preg_replace('/[^0-9]/', '', $trumps));
+
+//文字列を抽出
+foreach ($trumps as $trump) {
+    $cards['mark'][] = strstr($trump, "_", true);
+}
+var_dump($cards['mark']);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +30,6 @@ $trumps = $change->changeCards();
 <body>
     <?php foreach ($trumps as $trump): ?>
         <img src="/poker/image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
-    <?php endforeach; ?>
+    <?php endforeach ?>
 </body>
 </html>

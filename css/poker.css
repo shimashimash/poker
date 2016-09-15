@@ -28,11 +28,11 @@ p {
     margin: 20px;
 }
 
-.yamafuda-field {
+.kitty-field {
     text-align: center;
 }
 
-.yamafuda {
+.kitty {
     width: 100px;
     height: 125px;
 }
@@ -47,26 +47,26 @@ p {
     float: left;
 }
 
-li.syouhai {
+li.judge {
     margin-top: 55px;
     margin-left: 30px;
 }
 
-.yamafuda-field {
+.kitty-field {
     width:          100px;
     overflow:       hidden;
     margin:         10px 8px 10px 16px;
     position:       relative;   /* 相対位置指定 */
 }
 
-.yamafuda-field .caption {
+.kitty-field .caption {
     font-size: 55%;
     text-align: center;
     padding-top: 55%;
     color: #fff;
 }
 
-.yamafuda-field .mask {
+.kitty-field .mask {
     width: 100%;
     height: 125px;
     border-radius: 6px;
@@ -79,7 +79,7 @@ li.syouhai {
     transition: all 0.2s ease;
 }
 
-.yamafuda-field:hover .mask {
+.kitty-field:hover .mask {
     opacity: 1;
     cursor: pointer;
 }
