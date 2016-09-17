@@ -10,8 +10,8 @@ class Hand
         $trump = array();
         $marks = array('spades', 'hearts', 'diams', 'clubs');
         // パクリ先URL=>http://php-archive.net/php/blackjack/
-        foreach($marks as $mark){
-            for($i=1;$i<=13;$i++){
+        foreach($marks as $mark) {
+            for($i=1; $i <= 13; $i++){
                 $trump[] = array(
                     'number' => $i,
                     'mark' => $mark

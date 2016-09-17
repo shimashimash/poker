@@ -14,5 +14,6 @@ list($cpRank, $cpResult) = $poker->getYaku($cphands);
 
 $change = new \MyApp\Change();
 
+
 // 勝敗判定
 $judge = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $cpResult ? '引き分けです' : 'あなたの負けです');

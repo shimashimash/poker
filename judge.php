@@ -2,18 +2,36 @@
 ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
+require_once(__DIR__ . '/controller/poker.php');
 
 $trumps = $change->changeCards();
 
 //数字を抽出
-var_dump(preg_replace('/[^0-9]/', '', $trumps));
+$numbers = preg_replace('/[^0-9]/', '', $trumps);
+//var_dump($numbers);
 
 //文字列を抽出
 foreach ($trumps as $trump) {
-    $cards['mark'][] = strstr($trump, "_", true);
+    $marks[] = strstr($trump, "_", true);
 }
-var_dump($cards['mark']);
+var_dump($marks);
 
+//markとnumberを合体
+$myhands1 = array();
+foreach ($numbers as $number) {
+    for ($i=0; $i < 5; $i++) {
+        $myhands1[] = array(
+            'number' => (int)$number,
+            'mark' => $marks[$i]
+            );
+    }
+}
+
+//$poker = new \MyApp\Poker();
+//$rank1 = $poker->getYaku($myhandss);
+
+var_dump($myhands1);
+//var_dump($rank1);
 
 ?>
 <!DOCTYPE html>
