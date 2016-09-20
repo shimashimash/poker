@@ -7,6 +7,7 @@ require_once(__DIR__ . '/controller/poker.php');
 $trumps = $change->changeCards();
 
 //数字を抽出
+$numbers = [];
 $numbers = preg_replace('/[^0-9]/', '', $trumps);
 //var_dump($numbers);
 
@@ -14,25 +15,25 @@ $numbers = preg_replace('/[^0-9]/', '', $trumps);
 foreach ($trumps as $trump) {
     $marks[] = strstr($trump, "_", true);
 }
-var_dump($marks);
+//var_dump($marks);
 
 //markとnumberを合体
 $myhands1 = array();
-foreach ($numbers as $number) {
-    for ($i=0; $i < 5; $i++) {
+foreach ($numbers as $number => $value) {
+    foreach ($marks as $mark => $value) {
         $myhands1[] = array(
-            'number' => (int)$number,
-            'mark' => $marks[$i]
+            'number' => (int)$value,
+            'mark' => $value
             );
     }
 }
-
 //$poker = new \MyApp\Poker();
 //$rank1 = $poker->getYaku($myhandss);
 
 var_dump($myhands1);
-//var_dump($rank1);
+//print_r($myhands);
 
+//var_dump($numbers + $marks);
 ?>
 <!DOCTYPE html>
 <html>
