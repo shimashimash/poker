@@ -5,6 +5,10 @@ require_once(__DIR__ . '/controller/data.php');
 
 session_start();
 $_SESSION['kitty'] = $kitty;
+$_SESSION['cphands'] = $cphands;
+$_SESSION['cpRank'] = $cpRank;
+$_SESSION['cpResult'] = $cpResult;
+
 ?>
 
 <!DOCTYPE html>
@@ -19,33 +23,32 @@ $_SESSION['kitty'] = $kitty;
     <script src="js/poker.js"></script>
 </head>
 <body>
-    <div class="cards-field">
-        <div><p>You</p></div>
-        <form action="judge.php" method="post">
-            <?php foreach ($myhands as $myhand): ?>
-                <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
-                change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
-                <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+    <form action="judge.php" method="post">
+        <div class="cards-field">
+            <div><p>You</p></div>
+                <?php foreach ($myhands as $myhand): ?>
+                    <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+                    change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+                    <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+                <?php endforeach; ?>
+            <p>あなたの役は<?= h($rank); ?>です</p>
+        </div>
+        <ul class="field">
+            <li class="kitty-field">
+                <img src="/poker/image_trump/gif/z02.gif" class="kitty" alt="山札">
+                <div class="mask">
+                    <div class="caption">はじめから</div>
+                </div>
+            </li>
+            <li class="judge"><input type="submit" class="judge_btn" value="Judge!"></li>
+        </ul>
+        <div class="cards-field">
+            <p>相手の役は<?= h($cpRank); ?>です</p>
+            <?php foreach ($cphands as $cphand): ?>
+                <img src="/poker/image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
             <?php endforeach; ?>
-        <input type="submit" value="Judge!">
-        </form>
-        <p>あなたの役は<?= h($rank); ?>です</p>
-    </div>
-    <ul class="field">
-        <li class="kitty-field">
-            <img src="/poker/image_trump/gif/z02.gif" class="kitty" alt="山札">
-            <div class="mask">
-                <div class="caption">One more !</div>
-            </div>
-        </li>
-        <li class="judge"><?= $judge; ?></li>
-    </ul>
-    <div class="cards-field">
-        <p>相手の役は<?= h($cpRank); ?>です</p>
-        <?php foreach ($cphands as $cphand): ?>
-            <img src="/poker/image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
-        <?php endforeach; ?>
-        <div><p>Computer</p></div>
-    </div>
+            <div><p>Computer</p></div>
+        </div>
+    </form>
 </body>
 </html>

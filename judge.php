@@ -1,33 +1,11 @@
 <?php
 ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
-require_once(__DIR__ . '/controller/data.php');
-require_once(__DIR__ . '/controller/poker.php');
+require_once(__DIR__ . '/controller/data2.php');
 
-$trumps = $change->changeCards();
-
-//数字を抽出
-$numbers = [];
-$numbers = preg_replace('/[^0-9]/', '', $trumps);
-
-//文字列を抽出
-$marks = [];
-foreach ($trumps as $trump) {
-    $marks[] = strstr($trump, "_", true);
-}
-
-//markとnumberを合体
-$myhands1 = [];
-for ($i=0; $i < 5; $i++) {
-    $myhands1[] = array(
-        'number' => (int)$numbers[$i],
-        'mark' => $marks[$i]
-        );
-}
-
-var_dump($myhands1);
-//print_r($myhands);
-
+$cphands  = $_SESSION['cphands'];
+$cpRank   = $_SESSION['cpRank'];
+$cpResult = $_SESSION['cpResult'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,8 +19,28 @@ var_dump($myhands1);
     <script src="js/poker.js"></script>
 </head>
 <body>
-    <?php foreach ($trumps as $trump): ?>
-        <img src="/poker/image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
-    <?php endforeach ?>
+    <div class="cards-field">
+        <div><p>You</p></div>
+        <?php foreach ($trumps as $trump): ?>
+            <img src="/poker/image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
+        <?php endforeach ?>
+        <p>あなたの役は<?= h($yaku); ?>です</p>
+    </div>
+    <ul class="field">
+        <li class="kitty-field">
+            <img src="/poker/image_trump/gif/z02.gif" class="kitty" alt="山札">
+            <div class="mask">
+                <div class="caption">One more !</div>
+            </div>
+        </li>
+        <li class="judge"><?= h($judge) ?></li>
+    </ul>
+    <div class="cards-field">
+        <p>相手の役は<?= h($cpRank); ?>です</p>
+        <?php foreach ($cphands as $cphand): ?>
+            <img src="/poker/image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
+        <?php endforeach; ?>
+        <div><p>Computer</p></div>
+    </div>
 </body>
 </html>

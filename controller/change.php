@@ -47,4 +47,26 @@ class Change
         }
         return $trumps;
     }
+
+    public function convertCards($trumps) {
+        //数字を抽出
+        $numbers = [];
+        $numbers = preg_replace('/[^0-9]/', '', $trumps);
+
+        //文字列を抽出
+        $marks = [];
+        foreach ($trumps as $trump) {
+            $marks[] = strstr($trump, "_", true);
+        }
+
+        //markとnumberを合体
+        $changeHands = [];
+        for ($i=0; $i < 5; $i++) {
+            $changeHands[] = array(
+                'number' => (int)$numbers[$i],
+                'mark' => $marks[$i]
+                );
+        }
+        return $changeHands;
+    }
 }
