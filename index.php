@@ -27,7 +27,7 @@ $_SESSION['cpResult'] = $cpResult;
         <div class="cards-field">
             <div><p>You</p></div>
                 <?php foreach ($myhands as $myhand): ?>
-                    <img src="/poker/image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+                    <img src="image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
                     change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                     <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                 <?php endforeach; ?>

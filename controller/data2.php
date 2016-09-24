@@ -1,7 +1,7 @@
 <?php
 namespace MyApp;
 
-require_once('hand.php');
+require_once('deal.php');
 require_once('poker.php');
 require_once('change.php');
 require_once('data.php');
