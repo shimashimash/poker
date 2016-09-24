@@ -35,7 +35,7 @@ $_SESSION['cpResult'] = $cpResult;
         </div>
         <ul class="field">
             <li class="kitty-field">
-                <img src="/poker/image_trump/gif/z02.gif" class="kitty" alt="山札">
+                <img src="image_trump/gif/z02.gif" class="kitty" alt="山札">
                 <div class="mask">
                     <div class="caption">はじめから</div>
                 </div>
@@ -45,7 +45,7 @@ $_SESSION['cpResult'] = $cpResult;
         <div class="cards-field">
             <p>相手の役は<?= h($cpRank); ?>です</p>
             <?php foreach ($cphands as $cphand): ?>
-                <img src="/poker/image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
+                <img src="image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
             <?php endforeach; ?>
             <div><p>Computer</p></div>
         </div>
