@@ -7,8 +7,7 @@ class Deal
 {
     /**
     * トランプを返却
-    * @param Array
-    * @return string
+    * @return $trump シャッフルされたトランプ
     */
     public function getTrump() {
         return $this->shuffleTrump();
@@ -16,8 +15,8 @@ class Deal
 
     /**
     * 自分の手札を返却
-    * @param Array $trump
-    * @return string
+    * @param $trump　シャッフルされたトランプ
+    * @return $myhands 自分の手札
     */
     public function getHand($trump) {
         $myhands = array_slice($trump, 0, 5);
@@ -26,8 +25,8 @@ class Deal
 
     /**
     * cpの手札を返却
-    * @param Array $trump
-    * @return string
+    * @param $trump　シャッフルされたトランプ
+    * @return $cphands cpの手札
     */
     public function getCphand($trump) {
         $cphands = array_slice($trump, 6, 5);
@@ -36,24 +35,42 @@ class Deal
 
     /**
     * 山札を返却
-    * @param Array $trump
-    * @return string
+    * @param $trump　シャッフルされたトランプ
+    * @return $kitty 山札
     */
     public function getKitty($trump) {
         $kitty = array_slice($trump, 11, 42);
         return $kitty;
     }
+    /**
+    * セッションの開始
+    */
+    public function sessionStart() {
+        session_start(); 
+    }
 
-/*------------ここからprivateメソッド--------------*/
+    /**
+    * セッションの終了
+    */
+    public function clearSession() {
+        $_SESSION = '';
+        session_destroy();
+    }
+
+    // ********************************************************************************************
+    //
+    // これよりプライベートメソッド
+    //
+    // ********************************************************************************************
+
     /**
     * トランプをシャッフルして返却
-    * @param Array $trump
-    * @return string
+    * @param 
+    * @return $trump シャッフルされたトランプ
     */
     private function shuffleTrump() {
         $trump = array();
         $marks = array('spades', 'hearts', 'diams', 'clubs');
-        // パクリ先URL=>http://php-archive.net/php/blackjack/
         foreach($marks as $mark) {
             for($i=1; $i <= 13; $i++){
                 $trump[] = array(
@@ -62,7 +79,6 @@ class Deal
                 );
             }
         }
-        // $trumpはトランプ一式
         shuffle($trump);
 
         return $trump;

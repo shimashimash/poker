@@ -5,6 +5,11 @@ namespace MyApp;
  */
 class Change
 {
+    /**
+    * トランプを返却
+    * @param 
+    * @return $trump シャッフルされたトランプ
+    */
     public function changeCards() {
         // 山札取得
         session_start();
@@ -48,6 +53,11 @@ class Change
         return $trumps;
     }
 
+    /**
+    * トランプを返却
+    * @param 
+    * @return $trump シャッフルされたトランプ
+    */
     public function convertCards($trumps) {
         //数字を抽出
         $numbers = [];

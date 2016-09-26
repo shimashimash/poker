@@ -3,12 +3,6 @@ ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
 
-session_start();
-$_SESSION['kitty'] = $kitty;
-$_SESSION['cphands'] = $cphands;
-$_SESSION['cpRank'] = $cpRank;
-$_SESSION['cpResult'] = $cpResult;
-
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +21,7 @@ $_SESSION['cpResult'] = $cpResult;
         <div class="cards-field">
             <div><p>You</p></div>
                 <?php foreach ($myhands as $myhand): ?>
-                    <img src="image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
+                    <img src="./image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
                     change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                     <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                 <?php endforeach; ?>
@@ -35,7 +29,7 @@ $_SESSION['cpResult'] = $cpResult;
         </div>
         <ul class="field">
             <li class="kitty-field">
-                <img src="image_trump/gif/z02.gif" class="kitty" alt="山札">
+                <img src="./image_trump/gif/z02.gif" class="kitty" alt="山札">
                 <div class="mask">
                     <div class="caption">はじめから</div>
                 </div>
@@ -45,7 +39,7 @@ $_SESSION['cpResult'] = $cpResult;
         <div class="cards-field">
             <p>相手の役は<?= h($cpRank); ?>です</p>
             <?php foreach ($cphands as $cphand): ?>
-                <img src="image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
+                <img src="./image_trump/gif/<?= h($cphand['mark'])."_".h($cphand['number']).".gif"; ?>" class="trump-img" alt="相手の手札">
             <?php endforeach; ?>
             <div><p>Computer</p></div>
         </div>
