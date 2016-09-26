@@ -19,7 +19,7 @@ class Deal
     * @return $myhands 自分の手札
     */
     public function getHand($trump) {
-        $myhands = array_slice($trump, 0, 5);
+        $myhands = array_slice($trump, 0, 5, true);
         return $myhands;
     }
 
@@ -29,7 +29,7 @@ class Deal
     * @return $cphands cpの手札
     */
     public function getCphand($trump) {
-        $cphands = array_slice($trump, 6, 5);
+        $cphands = array_slice($trump, 5, 5, true);
         return $cphands;
     }
 
@@ -39,14 +39,14 @@ class Deal
     * @return $kitty 山札
     */
     public function getKitty($trump) {
-        $kitty = array_slice($trump, 11, 42);
+        $kitty = array_slice($trump, 10, 42, true);
         return $kitty;
     }
     /**
     * セッションの開始
     */
     public function sessionStart() {
-        session_start(); 
+        session_start();
     }
 
     /**
@@ -57,6 +57,10 @@ class Deal
         session_destroy();
     }
 
+    public function setKitty($kitty) {
+        $_SESSION['kitty'] = $kitty;
+    }
+
     // ********************************************************************************************
     //
     // これよりプライベートメソッド
@@ -65,7 +69,7 @@ class Deal
 
     /**
     * トランプをシャッフルして返却
-    * @param 
+    * @param
     * @return $trump シャッフルされたトランプ
     */
     private function shuffleTrump() {

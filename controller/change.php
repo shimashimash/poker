@@ -7,12 +7,11 @@ class Change
 {
     /**
     * トランプを返却
-    * @param 
+    * @param
     * @return $trump シャッフルされたトランプ
     */
     public function changeCards() {
         // 山札取得
-        session_start();
         $kitty = $_SESSION['kitty'];
 
         // 捨てられたカードの値を受け取り、その数をカウントする
@@ -55,7 +54,7 @@ class Change
 
     /**
     * トランプを返却
-    * @param 
+    * @param
     * @return $trump シャッフルされたトランプ
     */
     public function convertCards($trumps) {

@@ -28,7 +28,17 @@ class Poker
 	public function getYaku($cards) {
 		$result = $this->judge($cards);
 		$yaku = $this->getName($result);
-		return array($yaku, $result);
+		return $yaku;
+	}
+
+	/**
+	* 役の値を返却
+	* @param Array $cards
+	* @return string
+	*/
+	public function getJudge($cards) {
+		$result = $this->judge($cards);
+		return $result;
 	}
 
 	/**
