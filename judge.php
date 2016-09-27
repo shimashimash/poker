@@ -2,10 +2,6 @@
 ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data2.php');
-
-$cphands  = $_SESSION['cphands'];
-$cpRank   = $_SESSION['cpRank'];
-$cpResult = $_SESSION['cpResult'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +20,7 @@ $cpResult = $_SESSION['cpResult'];
         <?php foreach ($trumps as $trump): ?>
             <img src="./image_trump/gif/<?= h($trump); ?>" class="trump-img" alt="あなたの手札">
         <?php endforeach ?>
-        <p>あなたの役は<?= h($yaku); ?>です</p>
+        <p>あなたの役は<?= h($rank); ?>です</p>
     </div>
     <ul class="field">
         <li class="kitty-field">
@@ -42,5 +38,6 @@ $cpResult = $_SESSION['cpResult'];
         <?php endforeach; ?>
         <div><p>Computer</p></div>
     </div>
+    <?php var_dump($cphands) ?>
 </body>
 </html>

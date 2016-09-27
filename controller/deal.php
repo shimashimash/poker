@@ -57,8 +57,15 @@ class Deal
         session_destroy();
     }
 
-    public function setKitty($kitty) {
+    /**
+    * 山札をセッションに格納
+    *
+    */
+    public function setSession($kitty, $cphands, $cpRank, $cpResult) {
         $_SESSION['kitty'] = $kitty;
+        $_SESSION['cphands'] = $cphands;
+        $_SESSION['cpRank'] = $cpRank;
+        $_SESSION['cpResult'] = $cpResult;
     }
 
     // ********************************************************************************************

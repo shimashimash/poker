@@ -2,7 +2,6 @@
 ini_set("display_errors", 1);
 require_once(__DIR__ . '/controller/function.php');
 require_once(__DIR__ . '/controller/data.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -44,5 +43,6 @@ require_once(__DIR__ . '/controller/data.php');
             <div><p>Computer</p></div>
         </div>
     </form>
+    <?php var_dump($cphands) ?>
 </body>
 </html>

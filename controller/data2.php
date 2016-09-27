@@ -9,9 +9,11 @@ require_once('data.php');
 $change = new \MyApp\Change();
 $trumps = $change->changeCards();
 $changeHands = $change->convertCards($trumps);
+$change->getSession($cphands);
 
-$poker = new \MyApp\Poker();
-list($yaku, $result) = $poker->getYaku($changeHands);
+$poker    = new \MyApp\Poker();
+$rank     = $poker->getYaku($changeHands); //自分の役
+$myResult = $poker->getJudge($changeHands); //自分の役の値
 
 // 勝敗判定
-$judge = $result < $cpResult ? 'あなたの勝ちです' : ($result === $cpResult ? '引き分けです' : 'あなたの負けです');
+$judge = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $cpResult ? '引き分けです' : 'あなたの負けです');

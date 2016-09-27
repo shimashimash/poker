@@ -78,4 +78,12 @@ class Change
         }
         return $changeHands;
     }
+
+    /**
+    * 山札をセッションに格納
+    *
+    */
+    public function getSession($cphands) {
+        return $_SESSION['cphands'] = $cphands;
+    }
 }
