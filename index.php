@@ -43,6 +43,5 @@ require_once(__DIR__ . '/controller/data.php');
             <div><p>Computer</p></div>
         </div>
     </form>
-    <?php var_dump($cphands) ?>
 </body>
 </html>

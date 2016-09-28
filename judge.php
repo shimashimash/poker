@@ -38,6 +38,5 @@ require_once(__DIR__ . '/controller/data2.php');
         <?php endforeach; ?>
         <div><p>Computer</p></div>
     </div>
-    <?php var_dump($cphands) ?>
 </body>
 </html>

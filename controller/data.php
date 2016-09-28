@@ -16,8 +16,5 @@ $cpResult = $poker->getJudge($cphands); //相手の役の値
 
 $deal->sessionStart(); //セッションスタート
 $deal->setSession($kitty, $cphands, $cpRank, $cpResult); //必要な変数をセッションに格納
-// 勝敗判定
-$judge = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $cpResult ? '引き分けです' : 'あなたの負けです');
 
-
-//$deal->clearSession();
+$judge = $myResult < $cpResult ? 'あなたの勝ちです' : ($myResult === $cpResult ? '引き分けです' : 'あなたの負けです'); //勝敗判定

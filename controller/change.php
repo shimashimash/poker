@@ -7,19 +7,17 @@ class Change
 {
     /**
     * トランプを返却
-    * @param
-    * @return $trump シャッフルされたトランプ
+    * @param $kitty 山札
+    * @return $trumps 山札からドローしたトランプ
     */
-    public function changeCards() {
-        // 山札取得
-        $kitty = $_SESSION['kitty'];
+    public function changeCards($kitty) {
 
         // 捨てられたカードの値を受け取り、その数をカウントする
         if(isset($_POST['bet'])) {
             $results = $_POST['bet'];
             $cntBet = count($results);
         }else{
-            $cntBet = 0;
+            $cntBet;
         }
 
         // 山札から捨てられた枚数分引く
@@ -80,10 +78,17 @@ class Change
     }
 
     /**
-    * 山札をセッションに格納
-    *
+    * セッションの値を返却
+    * @return　$kitty 山札
+    * @return $cphands 相手の手札
+    * @return $cpRank 相手の役
+    * @return $cpResult 相手の役の値 
     */
-    public function getSession($cphands) {
-        return $_SESSION['cphands'] = $cphands;
+    public function getSession() {
+        $kitty   = $_SESSION['kitty'];
+        $cphands = $_SESSION['cphands'];
+        $cpRank = $_SESSION['cpRank'];
+        $cpResult = $_SESSION['cpResult'];
+        return array($kitty, $cphands, $cpRank, $cpResult);
     }
 }
