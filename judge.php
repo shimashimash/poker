@@ -25,7 +25,7 @@ require_once(__DIR__ . '/controller/data2.php');
     <ul class="field">
         <li class="kitty-field">
             <img src="./image_trump/gif/z02.gif" class="kitty" alt="山札">
-            <div class="mask">
+            <div class="mask restart-btn" data-url="./index.php">
                 <div class="caption">One more !</div>
             </div>
         </li>

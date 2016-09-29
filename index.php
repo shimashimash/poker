@@ -21,7 +21,7 @@ require_once(__DIR__ . '/controller/data.php');
             <div><p>You</p></div>
                 <?php foreach ($myhands as $myhand): ?>
                     <img src="./image_trump/gif/<?= h($myhand['mark']).'_'.h($myhand['number']).".gif"; ?>" class="trump-img" alt="あなたの手札">
-                    change<input type="checkbox" name="bet[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
+                    変更<input type="checkbox" name="change[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                     <input type="hidden" name="trumps[]" value="<?= h($myhand['mark']).'_'.h($myhand['number']).".gif" ?>">
                 <?php endforeach; ?>
             <p>あなたの役は<?= h($rank); ?>です</p>
